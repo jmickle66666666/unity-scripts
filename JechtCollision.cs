@@ -21,45 +21,49 @@ public class JechtCollision : MonoBehaviour {
 	
 	}
 
-	public bool collides (JechtCollision collider, float x, float y, float width, float height) {
+	void OnDestroy() {
+		colliders.Remove(this);
+	}
+
+	public GameObject collides (JechtCollision collider, float x, float y, float width, float height) {
 		if (x + width/2 > collider.transform.position.x - collider.width/2 &&
 			y + height/2 > collider.transform.position.y - collider.height/2 &&
 			x - width/2 <= collider.transform.position.x + collider.width/2 &&
 			y - height/2 <= collider.transform.position.y + collider.height/2) {
-			return true;
+			return collider.gameObject;
 		}
-		return false;
+		return null;
 	}
 
-	public bool collideAt (string collideType, float x, float y) {
+	public GameObject collideAt (string collideType, float x, float y) {
 		foreach (JechtCollision collider in colliders) {
 			if (collider != this && collider.type == collideType) {
 				if (collides(collider,x,y,width,height)) {
-					return true;
+					return collider.gameObject;
 				}
 			}
 		}
-		return false;
+		return null;
 	}
 
-	public bool collideAt (string collideType) {
+	public GameObject collideAt (string collideType) {
 		foreach (JechtCollision collider in colliders) {
 			if (collider != this && collider.type == collideType) {
-				if (collides(collider,transform.position.x,transform.position.y,width,height)) return true;
+				if (collides(collider,transform.position.x,transform.position.y,width,height)) return collider.gameObject;
 			}
 		}
-		return false;
+		return null;
 	}
 
-	public bool collideAt (float x, float y) {
+	public GameObject collideAt (float x, float y) {
 		foreach (JechtCollision collider in colliders) {
 			if (collider != this) {
 				if (collides(collider,x,y,width,height)) {
-					return true;
+					return collider.gameObject;
 				}
 			}
 		}
-		return false;
+		return null;
 	} 
 
 	void InitializeList () {
