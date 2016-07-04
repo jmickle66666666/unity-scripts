@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AnimJtor : MonoBehaviour {
+public class Animate : MonoBehaviour {
 
 	float timer = 0;
 
