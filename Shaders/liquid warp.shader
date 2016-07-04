@@ -1,4 +1,4 @@
-﻿Shader "Custom/liquid warp" {
+﻿Shader "Custom/Liquid Warp" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
         _EmissionMap("Emission", 2D) = "white" {}
@@ -34,8 +34,6 @@
             float levelOfExtreme = 6.0;
             float timeMod = time + a;
             return a + sin( timeMod * levelOfExtreme ) * violence;
-            
-            //return a + sin(time + a) * violence;
         }
         
 		void surf (Input IN, inout SurfaceOutputStandard o) {
