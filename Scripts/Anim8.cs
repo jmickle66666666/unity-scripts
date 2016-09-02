@@ -4,16 +4,25 @@ using System.Collections.Generic;
 
 public class Anim8 {
 
+	// Animation control
 	float timer = 0;
+	int spriteIndex = 0;
+
+	// Name of animation set to use
 	string animationSet;
+
+	// Current animation information
 	List<Sprite> currentAnim;
+	float currentSpeed;
+	
+	// Stored animations
 	Dictionary<string, List<Sprite>> animations;
 	Dictionary<string, float> animationSpeeds;
+	
+	// SpriteRenderer reference
 	SpriteRenderer spriteRenderer;
-	int spriteIndex = 0;
-	float currentSpeed;
-
-	// Use this for initialization
+	
+	// Initialization
 	public Anim8(string animationSet, SpriteRenderer sr) {
 		spriteRenderer = sr;
 		this.animationSet = animationSet;
@@ -21,13 +30,16 @@ public class Anim8 {
 		animationSpeeds = new Dictionary<string, float>();
 	}
 
+	// Load an animation
 	public void Load(string name, float speed) {
 
 		// Load all the frames for the 'name' animation
 		Sprite frame = null;
+
+		// We start at 1 lol!!!
 		int num = 1;
 
-		// Create the frame list for the new animation
+		// Create the frame lists for the new animation
 		animations.Add(name,new List<Sprite>());
 		animationSpeeds.Add(name, speed);
 
@@ -49,12 +61,13 @@ public class Anim8 {
 		}
 	}
 
+	// Play an animation
 	public void Play(string name) {
 		currentAnim = animations[name];
 		currentSpeed = animationSpeeds[name];
 	}
 	
-	// Update is called once per frame
+	// Update the anim8r
 	public void Update () {
 		if (currentAnim != null) {
 			timer += Time.deltaTime * currentSpeed;
