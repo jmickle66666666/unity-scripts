@@ -12,7 +12,7 @@ help avoid manually typing out the filename for each sprite frame.
 The structure works like this:
 * Inside Resources/Sprites/, create a folder for a group of sprites eg. "Player"
 * Then, in the Player/ folder, place your sprites.
-* Name your frames <animation>_<frame>.ext, e.g Run_1.png, Run_2.png, Idle_1.png
+* Name your frames animation_frame.ext, e.g `Run_1.png`, `Run_2.png`, `Idle_1.png`
 
 See Resources/Sprites/Player in this repository for an example.
 
