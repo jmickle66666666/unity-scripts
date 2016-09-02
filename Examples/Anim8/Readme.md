@@ -22,16 +22,16 @@ Create a new Anim8 object with `Anim8 anim = new Anim8(name, spriteRenderer);`
 name is the folder in which the animations for this object are stored, and spriteRenderer 
 is a reference to the SpriteRenderer you want to control.
 
-e.g `anim = new Anim8("Player", GetComponent<SpriteRenderer>());`
+`anim = new Anim8("Player", GetComponent<SpriteRenderer>());`
 
 Load an animation with `anim.Load(animation, speed)`
 animation is the name of the animation you want to load, and speed is the speed of this
 particular animation.
 
-e.g `anim.Load("Run",200.0f);`
+`anim.Load("Run",200.0f);`
 
 Play animations simply by calling `anim.Play(name);`
 
-e.g `anim.Play("Run");`
+`anim.Play("Run");`
 
 Your thing should now be running!!!!!!!
