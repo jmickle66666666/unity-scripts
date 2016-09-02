@@ -10,9 +10,8 @@ public class PlayerController : MonoBehaviour {
 		spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
 
 		anim = new AnimJtor("Player",spriteRenderer);
-		anim.Load("Run");
-		anim.Load("Idle");
-		anim.speed = 200.0f;
+		anim.Load("Run", 200.0f);
+		anim.Load("Idle", 200.0f);
 	}
 	
 	void Update () {
