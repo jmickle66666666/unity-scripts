@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	SpriteRenderer spriteRenderer;
 
 	void Start () {
-		spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
+		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		anim = new AnimJtor("Player",spriteRenderer);
 		anim.Load("Run", 200.0f);
