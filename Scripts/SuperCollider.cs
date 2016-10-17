@@ -8,6 +8,9 @@ public class SuperCollider : MonoBehaviour {
 	public float height;
 	public string type;
 	public const float minimumDistance = .01f;
+	[Space(10)]
+	[Header("Debug tools")]
+	public bool renderHitbox = true;
 	private static List<SuperCollider> colliders;
 
 	void Start () {
@@ -71,5 +74,19 @@ public class SuperCollider : MonoBehaviour {
 	// Create the master list of colliders if it doesn't exist already
 	void InitializeList () {
 		if (colliders == null) colliders = new List<SuperCollider>();
+	}
+
+	// Draw hitbox in scene view
+	void OnDrawGizmosSelected () {
+		if (renderHitbox) {
+			Vector3 topLeft = new Vector3(transform.position.x - width/2,transform.position.y - height/2);
+			Vector3 topRight = new Vector3(transform.position.x + width/2,transform.position.y - height/2);
+			Vector3 bottomLeft = new Vector3(transform.position.x + width/2,transform.position.y + height/2);
+			Vector3 bottomRight = new Vector3(transform.position.x - width/2,transform.position.y + height/2);
+			DrawLine(topLeft,topRight);
+			DrawLine(topRight,bottomRight);
+			DrawLine(bottomRight,bottomLeft);
+			DrawLine(bottomLeft,topLeft);
+		}
 	}
 }
